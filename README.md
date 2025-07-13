@@ -1,7 +1,7 @@
 # EdTech Platform Scaffold
 
 A full-stack EdTech platform scaffold with:
-- **Backend:** Express.js, Apollo GraphQL, Sequelize (MySQL)
+- **Backend:** Express.js, Apollo GraphQL, Sequelize (**PostgreSQL**)
 - **Frontend:** Next.js, TypeScript, Apollo Client, Redux, Tailwind CSS, Formik
 
 ---
@@ -27,7 +27,7 @@ npm install
 ```
 
 ### 3. Configure Environment Variables
-- Copy `.env.example` to `.env` in the `backend` folder and fill in your MySQL credentials:
+- Copy `.env.example` to `.env` in the `backend` folder and fill in your PostgreSQL credentials:
   - `DB_NAME`, `DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, `PORT`
 
 ### 4. Seed the Database
@@ -80,7 +80,7 @@ Use these emails to log in (no password required):
 ---
 
 ## ⚙️ Tech Stack
-- **Backend:** Node.js, Express, Apollo Server, Sequelize, MySQL
+- **Backend:** Node.js, Express, Apollo Server, Sequelize, **PostgreSQL**
 - **Frontend:** Next.js, TypeScript, Apollo Client, Redux, Tailwind CSS, Formik
 
 ---
@@ -95,7 +95,7 @@ Use these emails to log in (no password required):
 ---
 
 ## 🛠️ Notes
-- Make sure MySQL is running and accessible with the credentials in your `.env` file.
+- Make sure PostgreSQL is running and accessible with the credentials in your `.env` file.
 - The backend must be running before using the frontend.
 - You can add more users/courses in `backend/src/seed.js`.
 - For any issues, check backend logs for errors.
