@@ -19,7 +19,7 @@ require('dotenv').config();
 
     app.listen(port, (err) => {
         if (err) return console.log(`Error: ${err}`);
-        console.log(`Server ready at http://localhost:${port}${server.graphqlPath}`);
+        console.log(`Server is running on port ${port}`);
     });
 
 })();
