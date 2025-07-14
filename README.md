@@ -10,8 +10,8 @@ A full-stack EdTech platform scaffold with:
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
-cd edtech-platform-scaffold
+git clone <epo-url>
+cd edtech-platform
 ```
 
 ### 2. Install Dependencies
