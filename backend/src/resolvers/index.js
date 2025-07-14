@@ -11,6 +11,9 @@ const resolvers = {
         enrollUser: async (_, { userId, courseId }) => {
             const enrollment = await Enrollment.create({ user_id: userId, course_id: courseId });
             return enrollment;
+        },
+        createCourse: async (_, { title, description, level }, context) => {
+            return await Course.create({ title, description, level });
         }
     },
     Enrollment: {

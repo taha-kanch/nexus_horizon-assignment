@@ -4,14 +4,14 @@ export interface UserState {
   id: string;
   name: string;
   email: string;
-  role: 'student' | 'professor';
+  role: 'STUDENT' | 'PROFESSOR';
 }
 
 const initialState: UserState = {
   id: '',
   name: '',
   email: '',
-  role: 'student',
+  role: 'STUDENT',
 };
 
 const userSlice = createSlice({

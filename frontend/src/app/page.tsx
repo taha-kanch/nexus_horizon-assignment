@@ -21,6 +21,11 @@ export default function HomePage() {
       .finally(() => setLoading(false));
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/login";
+  };
+
   if (!user || !user.email) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen">
@@ -42,7 +47,23 @@ export default function HomePage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Available Courses</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">Available Courses</h1>
+        <button
+          className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+      </div>
+      {user.role === 'PROFESSOR' && (
+        <button
+          className="mb-4 bg-green-700 text-white px-4 py-2 rounded"
+          onClick={() => router.push('/course/new')}
+        >
+          + Create New Course
+        </button>
+      )}
       <ul className="space-y-2">
         {courses.map((course) => (
           <li key={course.id} className="p-4 border rounded-lg">

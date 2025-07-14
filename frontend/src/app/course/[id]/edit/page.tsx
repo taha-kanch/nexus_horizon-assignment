@@ -16,7 +16,7 @@ export default function EditCoursePage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (user.role !== "professor") {
+    if (user.role !== "PROFESSOR") {
       router.replace(`/course/${id}`);
       return;
     }

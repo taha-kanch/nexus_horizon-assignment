@@ -30,6 +30,7 @@ getEnrollment(userId: ID!, courseId: ID!): Enrollment
 
 type Mutation {
 enrollUser(userId: ID!, courseId: ID!): Enrollment
+createCourse(title: String!, description: String!, level: String!): Course
 }
 `;
 

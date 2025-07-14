@@ -15,6 +15,7 @@ export default function CourseDetailsPage() {
   const [error, setError] = useState("");
   const [enrollError, setEnrollError] = useState("");
   const [isEnrolled, setIsEnrolled] = useState(false);
+  const [enrolling, setEnrolling] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -42,26 +43,30 @@ export default function CourseDetailsPage() {
       <h1 className="text-2xl font-bold mb-2">{course.title}</h1>
       <p className="mb-2">{course.description}</p>
       <p className="mb-4 text-sm text-gray-600">Level: {course.level}</p>
-      {!isEnrolled ? (
+      {user.role === 'STUDENT' && (!isEnrolled ? (
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded mb-4"
+          className="bg-green-600 text-white px-4 py-2 rounded mb-4 disabled:opacity-50"
+          disabled={enrolling}
           onClick={async () => {
             setEnrollError("");
+            setEnrolling(true);
             try {
               await enrollUser(user.id, course.id);
               router.push(`/enroll-confirm?id=${course.id}`);
             } catch {
               setEnrollError("Enrollment failed. You may already be enrolled or there was a server error.");
+            } finally {
+              setEnrolling(false);
             }
           }}
         >
-          Enroll
+          {enrolling ? "Enrolling..." : "Enroll"}
         </button>
       ) : (
         <div className="mb-4 text-green-700 font-semibold">Already Enrolled</div>
-      )}
+      ))}
       {enrollError && <div className="text-red-600 mb-2">{enrollError}</div>}
-      {user.role === "professor" && (
+      {user.role === "PROFESSOR" && (
         <button
           className="bg-blue-600 text-white px-4 py-2 rounded ml-2"
           onClick={() => router.push(`/course/${course.id}/edit`)}

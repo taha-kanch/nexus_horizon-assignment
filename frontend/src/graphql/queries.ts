@@ -82,3 +82,22 @@ export const enrollUser = async (userId: string, courseId: string) => {
   });
   return data.enrollUser;
 };
+
+export const CREATE_COURSE = gql`
+  mutation CreateCourse($title: String!, $description: String!, $level: String!) {
+    createCourse(title: $title, description: $description, level: $level) {
+      id
+      title
+      description
+      level
+    }
+  }
+`;
+
+export const createCourse = async (title: string, description: string, level: string) => {
+  const { data } = await client.mutate({
+    mutation: CREATE_COURSE,
+    variables: { title, description, level },
+  });
+  return data.createCourse;
+};
