@@ -28,9 +28,12 @@ export default function LoginPage() {
   }, [dispatch, router]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="w-full max-w-md p-8 bg-white rounded shadow">
-        <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-100">
+      <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-lg border border-blue-100">
+        <div className="flex flex-col items-center mb-6">
+          <span className="text-3xl font-extrabold text-blue-700 mb-2">EdTech Platform</span>
+          <span className="text-sm text-gray-500">Login to continue</span>
+        </div>
         <Formik
           initialValues={{ email: "" }}
           onSubmit={handleLogin}
@@ -38,11 +41,11 @@ export default function LoginPage() {
           {() => (
             <Form className="space-y-4">
               <div>
-                <label className="block mb-1">Email</label>
-                <Field name="email" type="email" className="w-full border p-2 rounded" required />
+                <label className="block mb-1 font-semibold text-gray-700">Email</label>
+                <Field name="email" type="email" className="w-full border border-gray-200 p-2 rounded focus:ring-2 focus:ring-blue-400" required />
               </div>
               {error && <div className="text-red-600">{error}</div>}
-              <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">Login</button>
+              <button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg shadow-lg font-semibold hover:scale-105 transition-transform">Login</button>
             </Form>
           )}
         </Formik>
